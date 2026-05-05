@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhận ebook 8 bí quyết local brand đột phá</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(253,135,47,0.16), transparent 28%), #0c0b14;
+      color: #eceae2;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .eyebrow {
+      color: #fd872f;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin: 0 0 24px;
+    }
+    h1 span { color: #fd872f; }
+    .lead {
+      max-width: 680px;
+      color: rgba(236,234,226,0.68);
+      font-size: 18px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: grid;
+      gap: 12px;
+    }
+    .benefits li {
+      color: rgba(236,234,226,0.78);
+      font-size: 16px;
+      line-height: 1.45;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .benefits li::before {
+      content: "✓";
+      color: #fd872f;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: rgba(236,234,226,0.58);
+      font-size: 14px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(253,135,47,0.14);
+      color: #fff;
+      border: 1px solid rgba(253,135,47,0.28);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+      border-radius: 28px;
+      padding: 30px;
+    }
+    .book-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      background: rgba(253,135,47,0.15);
+      border: 1px solid rgba(253,135,47,0.32);
+      border-radius: 18px;
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+    .card .label {
+      color: #fd872f;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .card h2 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+    }
+    .sub {
+      color: rgba(236,234,226,0.55);
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0 0 22px;
+    }
+    form { display: grid; gap: 14px; }
+    label {
+      display: grid;
+      gap: 8px;
+      color: rgba(236,234,226,0.52);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    input {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(15,14,31,0.95);
+      color: #fff;
+      border-radius: 14px;
+      padding: 15px 16px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus {
+      border-color: rgba(253,135,47,0.8);
+      box-shadow: 0 0 0 4px rgba(253,135,47,0.12);
+    }
+    button {
+      width: 100%;
+      border: 0;
+      background: #fd872f;
+      color: #fff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 36px rgba(253,135,47,0.32);
+      transition: transform .2s, opacity .2s;
+    }
+    button:hover { transform: translateY(-1px); }
+    button:disabled { opacity: .65; cursor: not-allowed; transform: none; }
+    .privacy {
+      color: rgba(236,234,226,0.42);
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 2px;
+      text-align: center;
+    }
+    #formMessage {
+      display: none;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    #formMessage.success {
+      display: block;
+      background: rgba(43, 214, 144, 0.12);
+      border: 1px solid rgba(43, 214, 144, 0.28);
+      color: #bdf8df;
+    }
+    #formMessage.error {
+      display: block;
+      background: rgba(255, 82, 82, 0.12);
+      border: 1px solid rgba(255, 82, 82, 0.28);
+      color: #ffd0d0;
+    }
+    .author {
+      margin-top: 30px;
+      color: rgba(236,234,226,0.5);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .author strong { color: #eceae2; }
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; padding: 36px 0; }
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section>
+      <div class="eyebrow">Dành cho chủ local brand</div>
+      <h1>Nhận miễn phí<br>ebook <span>8 bí quyết</span><br>local brand đột phá</h1>
+      <p class="lead">Bộ tài liệu thực chiến giúp bạn thoát tồn kho, xây niềm tin, kể chuyện đúng cách và giữ chân khách hàng — từ người đã làm việc trực tiếp với hàng chục local brand Việt Nam.</p>
+      <ul class="benefits">
+        <li>Hiểu tại sao khách hỏi nhiều nhưng không mua</li>
+        <li>Kiểm soát tồn kho từ lô hàng đầu tiên</li>
+        <li>Chạy ads đúng thời điểm, không đốt tiền vô ích</li>
+        <li>Xây hệ thống khách hàng quay lại mua lần hai</li>
+      </ul>
+      <div class="proof">
+        <span class="badge">MIỄN PHÍ 100%</span>
+        <span>Hơn 200+ chủ brand đã nhận</span>
+        <span>Miễn phí, không spam, hủy bất cứ lúc nào</span>
+      </div>
+      <div class="author">
+        <strong>BKD · Bùi Khang Dĩ</strong><br>
+        8 năm vận hành & sản xuất local brand Việt Nam
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="book-icon">📘</div>
+      <div class="label">Nhận ngay vào email của bạn</div>
+      <h2>Điền tên và email của bạn</h2>
+      <p class="sub">Ebook 8 Bí Quyết Local Brand Đột Phá · 13 trang thực chiến. Ebook sẽ được gửi ngay vào hộp thư trong vài giây.</p>
+
+      <form id="leadForm">
+        <label>
+          Tên của bạn
+          <input name="name" type="text" placeholder="Ví dụ: Khang Dĩ" autocomplete="name" required>
+        </label>
+
+        <label>
+          Địa chỉ email
+          <input name="email" type="email" placeholder="vidu@email.com" autocomplete="email" required>
+        </label>
+
+        <input type="hidden" name="source" value="Landing Page Ebook Local Brand">
+
+        <button id="submitBtn" type="submit">Nhận ebook miễn phí ngay</button>
+        <div id="formMessage"></div>
+        <div class="privacy">Thông tin của bạn được bảo mật tuyệt đối · Không spam</div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // DÁN LINK WEBHOOK MAKE.COM VÀO ĐÂY
+    const WEBHOOK_URL = "https://hook.us2.make.com/9hk1d7861mjpo0lh92wet6br2u79hfgw";
+
+    const form = document.getElementById("leadForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const messageBox = document.getElementById("formMessage");
+
+    function showMessage(type, text) {
+      messageBox.className = type;
+      messageBox.textContent = text;
+    }
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      if (!WEBHOOK_URL || WEBHOOK_URL.includes("DAN_LINK_WEBHOOK")) {
+        showMessage("error", "Chưa dán link Webhook Make.com vào code.");
+        return;
+      }
+
+      const formData = new FormData(form);
+      const data = {
+        created_at: new Date().toLocaleString("vi-VN"),
+        name: formData.get("name").trim(),
+        email: formData.get("email").trim(),
+        source: formData.get("source") || "Landing Page Ebook Local Brand"
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Đang gửi...";
+      messageBox.className = "";
+      messageBox.textContent = "";
+
+      try {
+        const response = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error("Webhook không phản hồi thành công");
+        }
+
+        showMessage("success", "Đăng ký thành công! Anh/chị kiểm tra email nhé nếu không thấy email liên hệ 0888599919 qua zalo để nhận ngay ạ.");
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        showMessage("error", "Gửi chưa thành công. Anh/Chị Hãy kiểm tra lại thông tin nhé.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Nhận ebook miễn phí ngay";
+      }
+    });
+  </script>
+</body>
+</html>
